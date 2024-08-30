@@ -276,6 +276,7 @@
             BtnVoltar.TabIndex = 22;
             BtnVoltar.Text = "<";
             BtnVoltar.UseVisualStyleBackColor = true;
+            BtnVoltar.Click += BtnVoltar_Click;
             // 
             // Form1
             // 

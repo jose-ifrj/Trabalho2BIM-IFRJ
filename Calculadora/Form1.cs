@@ -99,5 +99,10 @@ namespace Calculadora
         {
 
         }
+
+        private void BtnVoltar_Click(object sender, EventArgs e)
+        {
+            TxtResult.Text.Remove(TxtResult.Text.Length - 1);
+        }
     }
 }

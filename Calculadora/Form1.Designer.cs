@@ -51,20 +51,22 @@
             BtnResult = new Button();
             BtnClean = new Button();
             BtnVoltar = new Button();
+            TempValue = new Label();
             SuspendLayout();
             // 
             // BtnSoma
             // 
-            BtnSoma.Location = new Point(150, 242);
+            BtnSoma.Location = new Point(150, 257);
             BtnSoma.Name = "BtnSoma";
             BtnSoma.Size = new Size(40, 40);
             BtnSoma.TabIndex = 0;
             BtnSoma.Text = "+";
             BtnSoma.UseVisualStyleBackColor = true;
+            BtnSoma.Click += BtnSoma_Click;
             // 
             // BtnSubtracao
             // 
-            BtnSubtracao.Location = new Point(150, 196);
+            BtnSubtracao.Location = new Point(150, 211);
             BtnSubtracao.Name = "BtnSubtracao";
             BtnSubtracao.Size = new Size(40, 40);
             BtnSubtracao.TabIndex = 1;
@@ -74,7 +76,7 @@
             // 
             // BtnMult
             // 
-            BtnMult.Location = new Point(150, 150);
+            BtnMult.Location = new Point(150, 165);
             BtnMult.Name = "BtnMult";
             BtnMult.Size = new Size(40, 40);
             BtnMult.TabIndex = 2;
@@ -83,7 +85,7 @@
             // 
             // BtnDiv
             // 
-            BtnDiv.Location = new Point(150, 104);
+            BtnDiv.Location = new Point(150, 119);
             BtnDiv.Name = "BtnDiv";
             BtnDiv.Size = new Size(40, 40);
             BtnDiv.TabIndex = 3;
@@ -92,7 +94,7 @@
             // 
             // BtnConvBin
             // 
-            BtnConvBin.Location = new Point(104, 58);
+            BtnConvBin.Location = new Point(104, 73);
             BtnConvBin.Name = "BtnConvBin";
             BtnConvBin.Size = new Size(40, 40);
             BtnConvBin.TabIndex = 4;
@@ -102,7 +104,7 @@
             // 
             // BtnFat
             // 
-            BtnFat.Location = new Point(150, 58);
+            BtnFat.Location = new Point(150, 73);
             BtnFat.Name = "BtnFat";
             BtnFat.Size = new Size(40, 40);
             BtnFat.TabIndex = 5;
@@ -112,7 +114,7 @@
             // 
             // BtnSeno
             // 
-            BtnSeno.Location = new Point(12, 104);
+            BtnSeno.Location = new Point(12, 119);
             BtnSeno.Name = "BtnSeno";
             BtnSeno.Size = new Size(40, 40);
             BtnSeno.TabIndex = 6;
@@ -121,7 +123,7 @@
             // 
             // BtnCos
             // 
-            BtnCos.Location = new Point(58, 104);
+            BtnCos.Location = new Point(58, 119);
             BtnCos.Name = "BtnCos";
             BtnCos.Size = new Size(40, 40);
             BtnCos.TabIndex = 7;
@@ -131,16 +133,17 @@
             // 
             // BtnTan
             // 
-            BtnTan.Location = new Point(104, 104);
+            BtnTan.Location = new Point(104, 119);
             BtnTan.Name = "BtnTan";
             BtnTan.Size = new Size(40, 40);
             BtnTan.TabIndex = 8;
             BtnTan.Text = "Tan";
             BtnTan.UseVisualStyleBackColor = true;
+            BtnTan.Click += BtnTan_Click;
             // 
             // BtnNum1
             // 
-            BtnNum1.Location = new Point(12, 150);
+            BtnNum1.Location = new Point(12, 165);
             BtnNum1.Name = "BtnNum1";
             BtnNum1.Size = new Size(40, 40);
             BtnNum1.TabIndex = 9;
@@ -150,7 +153,7 @@
             // 
             // BtnNum2
             // 
-            BtnNum2.Location = new Point(58, 150);
+            BtnNum2.Location = new Point(58, 165);
             BtnNum2.Name = "BtnNum2";
             BtnNum2.Size = new Size(40, 40);
             BtnNum2.TabIndex = 10;
@@ -160,7 +163,7 @@
             // 
             // BtnNum3
             // 
-            BtnNum3.Location = new Point(104, 150);
+            BtnNum3.Location = new Point(104, 165);
             BtnNum3.Name = "BtnNum3";
             BtnNum3.Size = new Size(40, 40);
             BtnNum3.TabIndex = 11;
@@ -170,7 +173,7 @@
             // 
             // BtnNum4
             // 
-            BtnNum4.Location = new Point(12, 196);
+            BtnNum4.Location = new Point(12, 211);
             BtnNum4.Name = "BtnNum4";
             BtnNum4.Size = new Size(40, 40);
             BtnNum4.TabIndex = 12;
@@ -180,7 +183,7 @@
             // 
             // BtnNum5
             // 
-            BtnNum5.Location = new Point(58, 196);
+            BtnNum5.Location = new Point(58, 211);
             BtnNum5.Name = "BtnNum5";
             BtnNum5.Size = new Size(40, 40);
             BtnNum5.TabIndex = 13;
@@ -190,7 +193,7 @@
             // 
             // BtnNum6
             // 
-            BtnNum6.Location = new Point(104, 196);
+            BtnNum6.Location = new Point(104, 211);
             BtnNum6.Name = "BtnNum6";
             BtnNum6.Size = new Size(40, 40);
             BtnNum6.TabIndex = 14;
@@ -200,7 +203,7 @@
             // 
             // BtnNum7
             // 
-            BtnNum7.Location = new Point(12, 243);
+            BtnNum7.Location = new Point(12, 258);
             BtnNum7.Name = "BtnNum7";
             BtnNum7.Size = new Size(40, 40);
             BtnNum7.TabIndex = 15;
@@ -210,7 +213,7 @@
             // 
             // BtnNum8
             // 
-            BtnNum8.Location = new Point(58, 242);
+            BtnNum8.Location = new Point(58, 257);
             BtnNum8.Name = "BtnNum8";
             BtnNum8.Size = new Size(40, 40);
             BtnNum8.TabIndex = 16;
@@ -220,7 +223,7 @@
             // 
             // BtnNum9
             // 
-            BtnNum9.Location = new Point(104, 242);
+            BtnNum9.Location = new Point(104, 257);
             BtnNum9.Name = "BtnNum9";
             BtnNum9.Size = new Size(40, 40);
             BtnNum9.TabIndex = 17;
@@ -230,7 +233,7 @@
             // 
             // BtnNum0
             // 
-            BtnNum0.Location = new Point(58, 288);
+            BtnNum0.Location = new Point(58, 303);
             BtnNum0.Name = "BtnNum0";
             BtnNum0.Size = new Size(40, 40);
             BtnNum0.TabIndex = 18;
@@ -241,16 +244,17 @@
             // TxtResult
             // 
             TxtResult.Font = new Font("Segoe UI", 24.5F, FontStyle.Regular, GraphicsUnit.Pixel);
-            TxtResult.Location = new Point(12, 12);
+            TxtResult.Location = new Point(12, 27);
             TxtResult.Name = "TxtResult";
             TxtResult.ReadOnly = true;
             TxtResult.Size = new Size(178, 40);
             TxtResult.TabIndex = 19;
             TxtResult.TextAlign = HorizontalAlignment.Right;
+            TxtResult.WordWrap = false;
             // 
             // BtnResult
             // 
-            BtnResult.Location = new Point(104, 288);
+            BtnResult.Location = new Point(104, 303);
             BtnResult.Name = "BtnResult";
             BtnResult.Size = new Size(86, 40);
             BtnResult.TabIndex = 20;
@@ -260,7 +264,7 @@
             // 
             // BtnClean
             // 
-            BtnClean.Location = new Point(12, 58);
+            BtnClean.Location = new Point(12, 73);
             BtnClean.Name = "BtnClean";
             BtnClean.Size = new Size(86, 40);
             BtnClean.TabIndex = 21;
@@ -270,7 +274,7 @@
             // 
             // BtnVoltar
             // 
-            BtnVoltar.Location = new Point(12, 288);
+            BtnVoltar.Location = new Point(12, 303);
             BtnVoltar.Name = "BtnVoltar";
             BtnVoltar.Size = new Size(40, 40);
             BtnVoltar.TabIndex = 22;
@@ -278,11 +282,21 @@
             BtnVoltar.UseVisualStyleBackColor = true;
             BtnVoltar.Click += BtnVoltar_Click;
             // 
+            // TempValue
+            // 
+            TempValue.Location = new Point(12, 9);
+            TempValue.Name = "TempValue";
+            TempValue.Size = new Size(178, 15);
+            TempValue.TabIndex = 23;
+            TempValue.TextAlign = ContentAlignment.TopRight;
+            TempValue.Click += TempValue_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(202, 341);
+            ClientSize = new Size(202, 354);
+            Controls.Add(TempValue);
             Controls.Add(BtnVoltar);
             Controls.Add(BtnClean);
             Controls.Add(BtnResult);
@@ -338,5 +352,6 @@
         private Button BtnResult;
         private Button BtnClean;
         private Button BtnVoltar;
+        private Label TempValue;
     }
 }

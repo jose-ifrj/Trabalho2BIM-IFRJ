@@ -1,3 +1,5 @@
+using Calculadora.Util;
+
 namespace Calculadora
 {
     public partial class Form1 : Form
@@ -6,6 +8,8 @@ namespace Calculadora
         public Form1()
         {
             InitializeComponent();
+            Calculo calc = new Calculo();
+            TxtResult.Text = calc.Fatorial("5");
         }
 
         public bool NaoInseriuNumero()
@@ -161,6 +165,8 @@ namespace Calculadora
             if (NaoInseriuNumero()) { return; }
             TempValue.Text = TxtResult.Text;
             TxtResult.Text = "0";
+
+
         }
 
         private void TempValue_Click(object sender, EventArgs e)

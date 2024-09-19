@@ -63,17 +63,40 @@ namespace Calculadora.Util
             int num = Int32.Parse(texto);
             int resultado;
             int temp;
+
+            //Recursividade para numero positivo
             if (num == 1)
             {
                 resultado = 1;
                 return resultado.ToString();
             }
-            else
+            else if (num > 0)
             {
                 temp = num - 1;
                 resultado = num * Int32.Parse(Fatorial(temp.ToString()));
                 return resultado.ToString();
             };
+
+            //Recursividade para numero negativo
+            if (num == -1)
+            {
+                resultado = -1;
+                return resultado.ToString();
+            }
+            else if (num < 0)
+            {
+                temp = num + 1;
+                resultado = num * Int32.Parse(Fatorial(temp.ToString()));
+                return resultado.ToString();
+            }
+            else { return "ERRO INESPERADO"; };
+
+        }
+
+        public string Binario(string texto)
+        {
+            int num = Int32.Parse(texto);
+            return Convert.ToString(num, 2);
         }
     }
 }

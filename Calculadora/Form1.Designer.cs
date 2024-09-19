@@ -49,9 +49,11 @@
             BtnNum0 = new Button();
             TxtResult = new TextBox();
             BtnResult = new Button();
-            BtnClean = new Button();
+            BtnCancelarEntrada = new Button();
             BtnVoltar = new Button();
             TempValue = new Label();
+            TxtOperation = new Label();
+            BtnCancelar = new Button();
             SuspendLayout();
             // 
             // BtnSoma
@@ -82,6 +84,7 @@
             BtnMult.TabIndex = 2;
             BtnMult.Text = "X";
             BtnMult.UseVisualStyleBackColor = true;
+            BtnMult.Click += BtnMult_Click;
             // 
             // BtnDiv
             // 
@@ -91,6 +94,7 @@
             BtnDiv.TabIndex = 3;
             BtnDiv.Text = "÷";
             BtnDiv.UseVisualStyleBackColor = true;
+            BtnDiv.Click += BtnDiv_Click;
             // 
             // BtnConvBin
             // 
@@ -110,7 +114,7 @@
             BtnFat.TabIndex = 5;
             BtnFat.Text = "Fat";
             BtnFat.UseVisualStyleBackColor = true;
-            BtnFat.Click += button6_Click;
+            BtnFat.Click += BtnFat_Click;
             // 
             // BtnSeno
             // 
@@ -120,6 +124,7 @@
             BtnSeno.TabIndex = 6;
             BtnSeno.Text = "Sen";
             BtnSeno.UseVisualStyleBackColor = true;
+            BtnSeno.Click += BtnSeno_Click;
             // 
             // BtnCos
             // 
@@ -243,12 +248,13 @@
             // 
             // TxtResult
             // 
-            TxtResult.Font = new Font("Segoe UI", 24.5F, FontStyle.Regular, GraphicsUnit.Pixel);
+            TxtResult.Font = new Font("Cascadia Mono ExtraLight", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TxtResult.Location = new Point(12, 27);
             TxtResult.Name = "TxtResult";
             TxtResult.ReadOnly = true;
-            TxtResult.Size = new Size(178, 40);
+            TxtResult.Size = new Size(178, 45);
             TxtResult.TabIndex = 19;
+            TxtResult.Text = "0";
             TxtResult.TextAlign = HorizontalAlignment.Right;
             TxtResult.WordWrap = false;
             // 
@@ -262,15 +268,15 @@
             BtnResult.UseVisualStyleBackColor = true;
             BtnResult.Click += BtnResult_Click;
             // 
-            // BtnClean
+            // BtnCancelarEntrada
             // 
-            BtnClean.Location = new Point(12, 73);
-            BtnClean.Name = "BtnClean";
-            BtnClean.Size = new Size(86, 40);
-            BtnClean.TabIndex = 21;
-            BtnClean.Text = "C";
-            BtnClean.UseVisualStyleBackColor = true;
-            BtnClean.Click += BtnClean_Click;
+            BtnCancelarEntrada.Location = new Point(12, 73);
+            BtnCancelarEntrada.Name = "BtnCancelarEntrada";
+            BtnCancelarEntrada.Size = new Size(40, 40);
+            BtnCancelarEntrada.TabIndex = 21;
+            BtnCancelarEntrada.Text = "CE";
+            BtnCancelarEntrada.UseVisualStyleBackColor = true;
+            BtnCancelarEntrada.Click += BtnCancEntr_Click;
             // 
             // BtnVoltar
             // 
@@ -284,21 +290,42 @@
             // 
             // TempValue
             // 
-            TempValue.Location = new Point(12, 9);
+            TempValue.Font = new Font("Cascadia Mono ExtraLight", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TempValue.Location = new Point(18, 9);
             TempValue.Name = "TempValue";
-            TempValue.Size = new Size(178, 15);
+            TempValue.Size = new Size(151, 15);
             TempValue.TabIndex = 23;
             TempValue.TextAlign = ContentAlignment.TopRight;
             TempValue.Click += TempValue_Click;
+            // 
+            // TxtOperation
+            // 
+            TxtOperation.Location = new Point(175, 9);
+            TxtOperation.Name = "TxtOperation";
+            TxtOperation.Size = new Size(15, 15);
+            TxtOperation.TabIndex = 24;
+            TxtOperation.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // BtnCancelar
+            // 
+            BtnCancelar.Location = new Point(58, 73);
+            BtnCancelar.Name = "BtnCancelar";
+            BtnCancelar.Size = new Size(40, 40);
+            BtnCancelar.TabIndex = 25;
+            BtnCancelar.Text = "C";
+            BtnCancelar.UseVisualStyleBackColor = true;
+            BtnCancelar.Click += BtnCanc_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(202, 354);
+            Controls.Add(BtnCancelar);
+            Controls.Add(TxtOperation);
             Controls.Add(TempValue);
             Controls.Add(BtnVoltar);
-            Controls.Add(BtnClean);
+            Controls.Add(BtnCancelarEntrada);
             Controls.Add(BtnResult);
             Controls.Add(TxtResult);
             Controls.Add(BtnNum0);
@@ -322,7 +349,6 @@
             Controls.Add(BtnSoma);
             Name = "Form1";
             Text = "Calculadora";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -350,8 +376,10 @@
         private Button BtnNum0;
         private TextBox TxtResult;
         private Button BtnResult;
-        private Button BtnClean;
+        private Button BtnCancelarEntrada;
         private Button BtnVoltar;
         private Label TempValue;
+        private Label TxtOperation;
+        private Button BtnCancelar;
     }
 }

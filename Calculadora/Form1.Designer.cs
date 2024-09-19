@@ -300,6 +300,7 @@
             // 
             // TxtOperation
             // 
+            TxtOperation.Font = new Font("Cascadia Mono ExtraLight", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TxtOperation.Location = new Point(175, 9);
             TxtOperation.Name = "TxtOperation";
             TxtOperation.Size = new Size(15, 15);

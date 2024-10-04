@@ -348,7 +348,12 @@
             Controls.Add(BtnMult);
             Controls.Add(BtnSubtracao);
             Controls.Add(BtnSoma);
+            MaximizeBox = false;
+            MaximumSize = new Size(218, 393);
+            MinimumSize = new Size(218, 393);
             Name = "Form1";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculadora";
             ResumeLayout(false);
             PerformLayout();

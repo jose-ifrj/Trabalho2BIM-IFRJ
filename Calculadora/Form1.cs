@@ -6,6 +6,7 @@ namespace Calculadora
     {
         //Variaveis Globais
         Calculo calc = new Calculo();
+        bool NumeroResultado = false;
         public Form1()
         {
             InitializeComponent();
@@ -14,6 +15,27 @@ namespace Calculadora
 
 
         #region Funções Gerais
+
+        public void ResetarAposResultado()
+        {
+            //Se o numero exibido for um resultado, o proximo numero sera o inicio de uma nova operacao.
+            if (NumeroResultado)
+            {
+                BtnCancelarEntrada.PerformClick();
+                NumeroResultado = false;
+            }
+        }
+
+        public bool NaoEInteiro()
+        {
+            try { Int64.Parse(TxtResult.Text); }
+            catch
+            {
+                MessageBox.Show("Essa operação da calculadora suporta apenas números inteiros.", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+            return false;
+        }
 
         public bool NaoInseriuCampoPrimario()
         {
@@ -92,6 +114,8 @@ namespace Calculadora
             TxtResult.Text = ExecutarOperacao();
             TxtOperation.Text = "";
             TempValue.Text = "";
+
+            NumeroResultado = true;
         }
 
         #endregion
@@ -103,12 +127,12 @@ namespace Calculadora
         private void BtnSoma_Click(object sender, EventArgs e)
         {
             if (NaoInseriuCampoPrimario()) { return; }
+            if (NaoEInteiro()) { return; }
 
             if (!string.IsNullOrEmpty(TxtOperation.Text)) { BtnResult.PerformClick(); }
 
             ProximoNumero();
             TxtOperation.Text = "+";
-
         }
 
         private void BtnSubtracao_Click(object sender, EventArgs e)
@@ -119,6 +143,7 @@ namespace Calculadora
                 TxtResult.Text = "-0";
                 return;
             }
+            if (NaoEInteiro()) { return; }
 
             if (!string.IsNullOrEmpty(TxtOperation.Text)) { BtnResult.PerformClick(); }
 
@@ -129,6 +154,7 @@ namespace Calculadora
         private void BtnMult_Click(object sender, EventArgs e)
         {
             if (NaoInseriuCampoPrimario()) { return; }
+            if (NaoEInteiro()) { return; }
 
             if (!string.IsNullOrEmpty(TxtOperation.Text)) { BtnResult.PerformClick(); }
 
@@ -139,6 +165,7 @@ namespace Calculadora
         private void BtnDiv_Click(object sender, EventArgs e)
         {
             if (NaoInseriuCampoPrimario()) { return; }
+            if (NaoEInteiro()) { return; }
 
             if (!string.IsNullOrEmpty(TxtOperation.Text)) { BtnResult.PerformClick(); }
 
@@ -155,46 +182,61 @@ namespace Calculadora
         private void BtnConvBin_Click(object sender, EventArgs e)
         {
             if (NaoInseriuCampoPrimario()) { return; }
+            if (NaoEInteiro()) { return; }
 
             if (!string.IsNullOrEmpty(TxtOperation.Text)) { BtnResult.PerformClick(); }
 
             TxtResult.Text = calc.Binario(TxtResult.Text);
+
+            NumeroResultado = true;
         }
 
         private void BtnSeno_Click(object sender, EventArgs e)
         {
             if (NaoInseriuCampoPrimario()) { return; }
+            if (NaoEInteiro()) { return; }
 
             if (!string.IsNullOrEmpty(TxtOperation.Text)) { BtnResult.PerformClick(); }
 
             TxtResult.Text = calc.Seno(TxtResult.Text);
+
+            NumeroResultado = true;
         }
 
         private void BtnCos_Click(object sender, EventArgs e)
         {
             if (NaoInseriuCampoPrimario()) { return; }
+            if (NaoEInteiro()) { return; }
 
             if (!string.IsNullOrEmpty(TxtOperation.Text)) { BtnResult.PerformClick(); }
 
             TxtResult.Text = calc.Cosseno(TxtResult.Text);
+
+            NumeroResultado = true;
         }
 
         private void BtnTan_Click(object sender, EventArgs e)
         {
             if (NaoInseriuCampoPrimario()) { return; }
+            if (NaoEInteiro()) { return; }
 
             if (!string.IsNullOrEmpty(TxtOperation.Text)) { BtnResult.PerformClick(); }
 
             TxtResult.Text = calc.Tangente(TxtResult.Text);
+
+            NumeroResultado = true;
         }
 
         private void BtnFat_Click(object sender, EventArgs e)
         {
             if (NaoInseriuCampoPrimario()) { return; }
+            if (NaoEInteiro()) { return; }
 
             if (!string.IsNullOrEmpty(TxtOperation.Text)) { BtnResult.PerformClick(); }
 
             TxtResult.Text = calc.Fatorial(TxtResult.Text);
+
+            NumeroResultado = true;
         }
 
         #endregion
@@ -205,6 +247,7 @@ namespace Calculadora
 
         private void BtnNum1_Click(object sender, EventArgs e)
         {
+            ResetarAposResultado();
             if (!NaoInseriuCampoPrimario()) { TxtResult.Text += "1"; }
             if (TxtResult.Text == "0") { TxtResult.Text = "1"; }
             if (TxtResult.Text == "-0") { TxtResult.Text = "-1"; }
@@ -212,6 +255,7 @@ namespace Calculadora
 
         private void BtnNum2_Click(object sender, EventArgs e)
         {
+            ResetarAposResultado();
             if (!NaoInseriuCampoPrimario()) { TxtResult.Text += "2"; }
             if (TxtResult.Text == "0") { TxtResult.Text = "2"; }
             if (TxtResult.Text == "-0") { TxtResult.Text = "-2"; }
@@ -219,6 +263,7 @@ namespace Calculadora
 
         private void BtnNum3_Click(object sender, EventArgs e)
         {
+            ResetarAposResultado();
             if (!NaoInseriuCampoPrimario()) { TxtResult.Text += "3"; }
             if (TxtResult.Text == "0") { TxtResult.Text = "3"; }
             if (TxtResult.Text == "-0") { TxtResult.Text = "-3"; }
@@ -226,6 +271,7 @@ namespace Calculadora
 
         private void BtnNum4_Click(object sender, EventArgs e)
         {
+            ResetarAposResultado();
             if (!NaoInseriuCampoPrimario()) { TxtResult.Text += "4"; }
             if (TxtResult.Text == "0") { TxtResult.Text = "4"; }
             if (TxtResult.Text == "-0") { TxtResult.Text = "-4"; }
@@ -233,6 +279,7 @@ namespace Calculadora
 
         private void BtnNum5_Click(object sender, EventArgs e)
         {
+            ResetarAposResultado();
             if (!NaoInseriuCampoPrimario()) { TxtResult.Text += "5"; }
             if (TxtResult.Text == "0") { TxtResult.Text = "5"; }
             if (TxtResult.Text == "-0") { TxtResult.Text = "-5"; }
@@ -240,6 +287,7 @@ namespace Calculadora
 
         private void BtnNum6_Click(object sender, EventArgs e)
         {
+            ResetarAposResultado();
             if (!NaoInseriuCampoPrimario()) { TxtResult.Text += "6"; }
             if (TxtResult.Text == "0") { TxtResult.Text = "6"; }
             if (TxtResult.Text == "-0") { TxtResult.Text = "-6"; }
@@ -247,6 +295,7 @@ namespace Calculadora
 
         private void BtnNum7_Click(object sender, EventArgs e)
         {
+            ResetarAposResultado();
             if (!NaoInseriuCampoPrimario()) { TxtResult.Text += "7"; }
             if (TxtResult.Text == "0") { TxtResult.Text = "7"; }
             if (TxtResult.Text == "-0") { TxtResult.Text = "-7"; }
@@ -254,6 +303,7 @@ namespace Calculadora
 
         private void BtnNum8_Click(object sender, EventArgs e)
         {
+            ResetarAposResultado();
             if (!NaoInseriuCampoPrimario()) { TxtResult.Text += "8"; }
             if (TxtResult.Text == "0") { TxtResult.Text = "8"; }
             if (TxtResult.Text == "-0") { TxtResult.Text = "-8"; }
@@ -261,6 +311,7 @@ namespace Calculadora
 
         private void BtnNum9_Click(object sender, EventArgs e)
         {
+            ResetarAposResultado();
             if (!NaoInseriuCampoPrimario()) { TxtResult.Text += "9"; }
             if (TxtResult.Text == "0") { TxtResult.Text = "9"; }
             if (TxtResult.Text == "-0") { TxtResult.Text = "-9"; }

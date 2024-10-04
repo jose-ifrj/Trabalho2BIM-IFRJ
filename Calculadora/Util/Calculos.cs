@@ -11,58 +11,58 @@ namespace Calculadora.Util
     {
         public string Soma(string x,string y)
         {
-            int z = Int32.Parse(x);
-            int f = Int32.Parse(y);
-            int result = z + f;
+            long z = Int64.Parse(x);
+            long f = Int64.Parse(y);
+            long result = z + f;
             return result.ToString();
         }
 
         public string Subtrair(string x, string y)
         {
-            int z = Int32.Parse(x);
-            int f = Int32.Parse(y);
-            int result = z - f;
+            long z = Int64.Parse(x);
+            long f = Int64.Parse(y);
+            long result = z - f;
             return result.ToString();
         }
 
         public string Mult(string x, string y)
         {
-            int z = Int32.Parse(x);
-            int f = Int32.Parse(y);
-            int result = z * f;
+            long z = Int64.Parse(x);
+            long f = Int64.Parse(y);
+            long result = z * f;
             return result.ToString();
         }
 
         public string Div(string x, string y)
         {
-            int z = Int32.Parse(x);
-            int f = Int32.Parse(y);
-            int result = z / f;
+            long z = Int64.Parse(x);
+            long f = Int64.Parse(y);
+            long result = z / f;
             return result.ToString();
         }
         public string Seno(string angulo)
         {
-            int z = Int32.Parse(angulo);
-            int resultado = Convert.ToInt32(Math.Sin(z));
+            double radiano = Int32.Parse(angulo) * Math.PI / 180;
+            double resultado = Math.Sin(radiano);
             return resultado.ToString();
         }
         public string Cosseno(string angulo)
         {
-            int z = Int32.Parse(angulo);
-            int resultado = Convert.ToInt32(Math.Cos(z));
+            double radiano = Int32.Parse(angulo) * Math.PI / 180;
+            double resultado = Math.Cos(radiano);
             return resultado.ToString();
         }
         public string Tangente(string angulo)
         {
-            int z = Int32.Parse(angulo);
-            int resultado = Convert.ToInt32(Math.Tan(z));
+            double radiano = Int32.Parse(angulo) * Math.PI / 180;
+            double resultado = Math.Tan(radiano);
             return resultado.ToString();
         }
         public string Fatorial(string texto)
         {
-            int num = Int32.Parse(texto);
-            int resultado;
-            int temp;
+            long num = Int64.Parse(texto);
+            long resultado;
+            long temp;
 
             //Recursividade para numero positivo
             if (num == 1)
@@ -73,7 +73,7 @@ namespace Calculadora.Util
             else if (num > 0)
             {
                 temp = num - 1;
-                resultado = num * Int32.Parse(Fatorial(temp.ToString()));
+                resultado = num * Int64.Parse(Fatorial(temp.ToString()));
                 return resultado.ToString();
             };
 
@@ -86,7 +86,7 @@ namespace Calculadora.Util
             else if (num < 0)
             {
                 temp = num + 1;
-                resultado = num * Int32.Parse(Fatorial(temp.ToString()));
+                resultado = num * Int64.Parse(Fatorial(temp.ToString()));
                 return resultado.ToString();
             }
             else { return "ERRO INESPERADO"; };
@@ -95,8 +95,30 @@ namespace Calculadora.Util
 
         public string Binario(string texto)
         {
+            long num = Int64.Parse(texto);
+            long resto;
+            string resultado = string.Empty;
+            while (num > 0)
+            {
+                resto = num % 2;
+                num = num / 2;
+                resultado = resto.ToString() + resultado;
+            }
+            return resultado;
+        }
+
+     /* BINARIO ANTIGO
+      *
+      *
+
+        public string Binario(string texto)
+        {
             int num = Int32.Parse(texto);
             return Convert.ToString(num, 2);
         }
+
+      * 
+      * 
+      */
     }
 }
